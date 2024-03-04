@@ -1,0 +1,6 @@
+127.0.0.1 - - [10/Jul/2023:11:19:05 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [10/Jul/2023:11:19:08 +0530] "GET /DemoApp/assignmentJsp.jsp HTTP/1.1" 200 538
+0:0:0:0:0:0:0:1 - - [10/Jul/2023:11:19:08 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [10/Jul/2023:11:19:23 +0530] "POST /DemoApp/AssignmentJspCode.jsp HTTP/1.1" 200 1628
+0:0:0:0:0:0:0:1 - - [10/Jul/2023:13:54:51 +0530] "GET /DemoApp/JavaPractical.jsp HTTP/1.1" 200 603
+0:0:0:0:0:0:0:1 - - [10/Jul/2023:13:55:43 +0530] "GET /DemoApp/JavaPractical.jsp HTTP/1.1" 200 494

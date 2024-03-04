@@ -1,0 +1,16 @@
+package SpringDemo.Demo;
+
+public class Triangle {
+  public Triangle() {
+		// TODO Auto-generated constructor stub
+	  System.out.println("Default Constructor");
+	} {
+		
+	}
+	public Triangle(int a,int b) {
+		System.out.println("a is "+a+" and b is "+b );
+	}
+	public void DrawShape() {
+		System.out.println("Triangle");
+	}
+}

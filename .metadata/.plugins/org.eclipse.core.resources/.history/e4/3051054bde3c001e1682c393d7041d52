@@ -1,0 +1,72 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="m"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="p"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
+
+
+<m:master title="PassortPage">
+
+
+	<jsp:attribute name="head">
+</jsp:attribute>
+
+
+	<jsp:attribute name="content">
+	
+	<f:form action="Applied" method="post" modelAttribute="passport">
+	<table>
+	<tr>
+	<td>Enter the Country name</td>
+	<td><f:input path="country" required="true"/></td>
+	<td><f:errors path="country" /></td>
+				</tr>
+	<tr>
+	<td>Enter the state name</td>
+	<td><f:input path="state" required="true"/></td>
+	<td><f:errors path="state" /></td>
+				</tr>
+	<tr>
+	<td>Enter the city name</td>
+	<td><f:input path="city" required="true"/></td>
+	<td><f:errors path="city" /></td>
+				</tr>
+	<tr>
+    <td>Enter the pin number</td>
+    <td><f:input type="number" path="pin" maxlength="6" required="true" /></td>
+    <td><f:errors path="pin" /></td>
+</tr>
+
+	
+				<tr>
+			<td>Type Of Service</td>
+
+                      <td>  <f:radiobutton path="typeOfService" value="Normal" required="true" />Normal </td>
+
+                     <td>   <f:radiobutton path="typeOfService" value="Tatkal" /> Tatkal</td>
+                     </tr>
+                     
+                     
+				<tr>
+			<td>Booklet Type</td>
+
+                      <td>  <f:radiobutton path="bookletType" value="30Pages" required="true" />30 Pages </td>
+
+                     <td>   <f:radiobutton path="bookletType" value="60Pages" /> 60 Pages</td>
+                     </tr>
+			
+				<tr> <td>Issue Date</td>
+    			<td><f:input path="issuseDate" type="date" readonly="true"></f:input></td>
+			</tr>
+		   		
+		   		<tr>
+		   		<td><input type="submit"></td>
+		   		</tr>
+
+			
+			</table>
+	
+	</f:form>
+	
+</jsp:attribute>
+</m:master>

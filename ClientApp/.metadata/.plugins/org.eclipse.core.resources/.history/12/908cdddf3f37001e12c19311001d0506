@@ -1,0 +1,102 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+
+		$("#registrationNo").blur(function() {
+			var r = $("#registrationNo").val();
+			alert(r);
+			$.ajax({
+				type : "GET",
+				url : "http://localhost:8080/getVehicle/" + r,
+				dataType : "json",
+				contentType : "application/json;charset=utf-8",
+				success : function(data) {
+					$("#type").val(data.type);
+					$("#registrationDate").val(data.registrationDate);
+					$("#cost").val(data.cost);
+				},
+				error : function(x, err) {
+					alert("readystate " + x.ready);
+					alert(x.responseText);
+
+				}
+
+			});//ajax ends
+
+		});//end of blur
+
+		$("#btnClick").click(function(){
+			var V={};
+			V.registrationNo=$("#registrationNo").val();
+			V.type=$("#type").val();
+			V.registrationDate=$("#registrationDate").val();
+			V.cost=$("#cost").val();
+			/* var S = {
+				    'registrationNo': V.registrationNo,
+				    'type': V.type,
+				    'registrationDate': V.registrationDate,
+				    'cost': V.cost
+				};
+
+				alert(JSON.stringify(S)); */
+				$.ajax({
+					type: "PUT",
+					url:"http://localhost:8080/updateVehicle/"+V.registrationNo,
+					dataType : "text",
+					data:JSON.stringify(V),
+					contentType:"application/json;charset=utf-8",
+					async:false,
+					success: function(data) {
+						alert(data);
+					},
+					error: function(x, err) {
+						alert("readystate " + err);
+						alert(x.responseText);
+
+					}
+					
+				});
+
+			
+		});
+		
+	});//end of jquery
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="">
+		<table>
+			<tr>
+				<td>RegistrationNo</td>
+				<td><input type="text" id="registrationNo"></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td><input type="text" id="type"></td>
+			</tr>
+			<tr>
+				<td>RegistrationDate</td>
+				<td><input type="date" id="registrationDate"></td>
+			</tr>
+			<tr>
+				<td>cost</td>
+				<td><input type="text" id="cost"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" id="btnClick"></td>
+			</tr>
+		</table>
+
+
+	</form>
+</body>
+</html>

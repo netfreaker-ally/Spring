@@ -1,0 +1,5 @@
+package com.techwave.client.models.restconnect;
+
+public class passport_urls {
+
+}

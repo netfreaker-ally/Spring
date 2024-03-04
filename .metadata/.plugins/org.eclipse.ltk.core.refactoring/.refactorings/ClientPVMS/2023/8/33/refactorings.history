@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ClientPVMS/src/main/webapp/WEB-INF/views/visaApply.jsp&apos; to &apos;VisaApply.jsp&apos;" description="Rename resource &apos;visaApply.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/WEB-INF/views/visaApply.jsp" name="VisaApply.jsp" stamp="1692270567479" updateReferences="true"/>
+</session>

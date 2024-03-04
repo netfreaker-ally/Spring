@@ -1,0 +1,19 @@
+<%@ tag language="java" pageEncoding="ISO-8859-1"%>
+<%@attribute name="title" rtexprvalue="true" required="true"%>
+<%@attribute name="head" fragment="true"%>
+<%@attribute name="content" fragment="true" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Master</title>
+</head>
+<body>
+	<%-- <img src="${pageContext.request.contextPath}/images/master.jpg"> --%>
+	hiiii
+	<jsp:invoke fragment="head"></jsp:invoke>
+	<jsp:invoke fragment="content"></jsp:invoke>
+</body>
+</html>

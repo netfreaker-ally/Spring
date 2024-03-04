@@ -1,0 +1,168 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="m"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
+
+<m:master title="VisaApply">
+	<jsp:attribute name="head">
+	<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script>
+		$(document)
+				.ready(
+						function()
+
+						{
+							alert("heyyy");
+							var userId = $("#userID").val();
+							var status = "Active";
+							
+							alert(userId);
+							alert(status);
+							
+							 $.ajax({
+										type : "Get",
+										url : "http://localhost:9000/getUserVisaByIdAndStatus2/"+userId+"/"+status,
+
+										dataType : "json",
+										async : true,
+										contentType : "application/json;charset=utf-8",
+										success : function(data) {
+											console.log("AJAX Success");
+											if (data.length === 0) {
+												// If no active visas, set the default value to include all three countries
+												console.log(data[0].country);
+												$("#countryId").empty(); // Clear existing options
+												$("#countryId")
+														.append(
+																'<option value="USA">USA</option>');
+												$("#countryId")
+														.append(
+																'<option value="JAPAN">JAPAN</option>');
+												$("#countryId")
+														.append(
+																'<option value="CHINA">CHINA</option>');
+											} else {
+
+												let userActiveCountries = [];
+												for (let i = 0; i < data.length; i++) {
+													userActiveCountries
+															.push(data[i].country);
+													console
+															.log(data[i].country);
+												}
+
+												// Define all available countries
+												let allCountries = [ "USA",
+														"JAPAN", "CHINA" ];
+
+												// Filter out the countries with active visas from all available countries
+												let availableCountries = allCountries
+														.filter(function(
+																country) {
+															return !userActiveCountries
+																	.includes(country);
+														});
+
+												// Clear existing options and update the dropdown options
+												$("#countryId").empty();
+												for (let i = 0; i < availableCountries.length; i++) {
+													$("#countryId")
+															.append(
+																	'<option value="' + availableCountries[i] + '">'
+																			+ availableCountries[i]
+																			+ '</option>');
+												}
+											}
+										},
+										error : function(x, error) {
+											alert(x.responseText);
+										}
+									});  // end of ajax
+
+						});//end of jquery
+	</script>
+	
+	
+	</jsp:attribute>
+	<jsp:attribute name="content">
+	
+
+	
+	
+<f:form action="insertIntoVisa" modelAttribute="visaDetails"
+			method="get">
+<table>
+<tr> 
+	<td><f:input path="visaId" style="display: none;"></f:input></td>
+	<td><f:errors path="visaId"></f:errors></td>
+</tr>
+<tr> <td>UserId </td>
+	<td><f:input path="userId.userId" id="userID"></f:input></td>
+	<td><f:errors path="userId"></f:errors></td>
+</tr>
+
+<tr> <td>VisaId </td>
+	<td><f:input path="passportId.passportId"></f:input></td>
+	<td><f:errors path="passportId"></f:errors></td>
+</tr>
+ <tr>
+                    <td>Country</td>
+                    <td>
+                        <f:select path="country" id="countryId">
+                        <f:option value="">Select</f:option>
+                            <f:option value="USA">USA</f:option>
+                            <f:option value="JAPAN">JAPAN</f:option>
+                            <f:option value="CHINA">CHINA</f:option>
+                        </f:select>
+                    </td>
+                    <td><f:errors path="country"></f:errors></td>
+                </tr>
+<tr>
+    <td>Occupation</td>
+    <td>
+        <f:select path="occupation">
+        	<f:option value="">Select</f:option>
+            <f:option value="Student">Student</f:option>
+            <f:option value="Private Employee">Private Employee</f:option>
+            <f:option value="Government Employee">Government Employee</f:option>
+            <f:option value="Self Employed">Self Employed</f:option>
+            <f:option value="Retired Employee">Retired Employee</f:option>
+        </f:select>
+    </td>
+    <td><f:errors path="occupation"></f:errors></td>
+</tr>
+
+
+<tr> <td>DateOfApplication</td>
+	<td><f:input path="dateOfApplication" type="date" readonly="true"></f:input></td>
+	<td><f:errors path="dateOfApplication"></f:errors></td>
+</tr>
+<tr> 
+	<td><f:input path="dateOfIssue" type="date" style="display: none;"></f:input></td>
+	<td><f:errors path="dateOfIssue"></f:errors></td>
+</tr>
+<tr> 
+	<td><f:input path="registrationCost" style="display: none;"></f:input></td>
+	<td><f:errors path="registrationCost"></f:errors></td>
+</tr>
+<tr> 
+	<td><f:input path="expiryDate" type="date" style="display: none;"></f:input></td>
+	<td><f:errors path="expiryDate"></f:errors></td>
+</tr>
+<tr> 
+	<td><f:input path="status" style="display: none;"></f:input></td>
+	<td><f:errors path="status"></f:errors></td>
+</tr>
+<tr>
+					<td><input type="submit"></td> </tr>
+					
+			
+	</table>
+
+
+</f:form>
+
+</jsp:attribute>
+
+</m:master>

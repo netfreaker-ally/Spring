@@ -1,0 +1,8 @@
+package SpringDemo.Demo;
+
+public class Triangle {
+	
+	public void DrawShape() {
+		System.out.println("Triangle");
+	}
+}

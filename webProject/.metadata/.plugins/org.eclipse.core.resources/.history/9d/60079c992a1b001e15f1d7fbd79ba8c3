@@ -1,0 +1,37 @@
+package SpringDemo.Demo;
+
+import java.util.List;
+
+public class Student {
+	 int studentNo;
+	 String studentName;
+	 List<Integer> markss;
+	public Student() {
+		super();
+	}
+	public Student(int studentNo, String studentName, List<Integer> markss) {
+		super();
+		this.studentNo = studentNo;
+		this.studentName = studentName;
+		this.markss = markss;
+	}
+	public int getStudentNo() {
+		return studentNo;
+	}
+	public void setStudentNo(int studentNo) {
+		this.studentNo = studentNo;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+	public List<Integer> getMarkss() {
+		return markss;
+	}
+	public void setMarkss(List<Integer> markss) {
+		this.markss = markss;
+	}
+	 
+}

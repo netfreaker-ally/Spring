@@ -1,0 +1,14 @@
+<%@taglib tagdir="/WEB-INF/tags" prefix="tag" %>
+<tag:master title="HomePage">
+
+<jsp:attribute name="head"></jsp:attribute>
+
+<jsp:attribute name="content">
+
+Contact us
+gmail name query type must be implment
+</jsp:attribute>
+
+
+
+</tag:master>

@@ -1,0 +1,40 @@
+package com.techwave.client.controllers.PassportApplyController;
+
+import java.time.LocalDate;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.techwave.client.models.pojo.PassportDetails;
+
+import jakarta.validation.Valid;
+
+@Controller
+public class PassportApplyController {
+
+	@RequestMapping("/passportApply")
+	public String passportApply(Model M) {
+		PassportDetails p = new PassportDetails();
+		p.setIssuseDate(LocalDate.now());
+		p.setPassportId(null);
+		p.setCost(null);
+		p.setExpiryDate(null);
+		p.setUserId(null);
+		p.setPassportId(null);
+		M.addAttribute("passport", p);
+
+		return "Passportpg";
+	}
+
+	@RequestMapping("/Applied")
+	public String afterPassportApply(@Valid @ModelAttribute("passport") PassportDetails p, BindingResult result) {
+		if (result.hasErrors()) {
+			return "Passportpg";
+		} else {
+			return "homepage";
+		}
+	}
+}

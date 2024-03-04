@@ -1,0 +1,19 @@
+<%@taglib tagdir="/WEB-INF/tags" prefix="tag" %>
+<tag:master title="HomePage">
+
+<jsp:attribute name="head"></jsp:attribute>
+
+<jsp:attribute name="content">
+
+HomePage
+</jsp:attribute>
+
+
+
+
+
+
+
+
+
+</tag:master>

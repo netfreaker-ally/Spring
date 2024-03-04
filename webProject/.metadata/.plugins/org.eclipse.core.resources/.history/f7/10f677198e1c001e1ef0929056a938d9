@@ -1,0 +1,8 @@
+package SpringDemo.DemoAoP.POJO;
+
+public class Snippet {
+	public static void main(String[] args) {
+		SpringDemo.DemoAoP.aspects.DemoAspect
+	}
+}
+

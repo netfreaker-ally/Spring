@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@taglib tagdir="/src/main/webapp/tags" prefix="m" %>
+<m:master title="RegistrationPage">
+
+<jsp:attribute name="head">
+
+
+</jsp:attribute>
+<jsp:attribute name="content">
+
+
+</jsp:attribute>
+
+
+</m:master>

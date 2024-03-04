@@ -1,0 +1,27 @@
+package SpringDemo.Demo;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+      ApplicationContext context=new ClassPathXmlApplicationContext("SpringFactory.xml");
+//       Triangle triangle=(Triangle) context.getBean("T");
+//       triangle.DrawShape();
+//      
+//      Triangle t1=(Triangle) context.getBean("T1");
+      	Triangle t5=new Triangle();
+      	Triangle t4=t5;
+      	System.out.println(t4);
+      	System.out.println(t5);
+      	Rectangle r1=(Rectangle)context.getBean("R1");
+      	r1.DrawShape();
+       
+    }
+}

@@ -1,0 +1,52 @@
+package com.techwave.client.Models.Pojos;
+
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.validation.constraints.NotBlank;
+
+public class Vehicle {
+	@NotBlank(message = "required")
+	private String registrationNo;
+	@NotBlank(message = "required")
+	private String type;
+	@DateTimeFormat(pattern ="yyyy-MM-dd")
+	private LocalDate registrationDate;
+	private double cost;
+	public Vehicle() {
+		// TODO Auto-generated constructor stub
+	}
+	public Vehicle(String registrationNo, String type, LocalDate registrationDate, double cost) {
+		super();
+		this.registrationNo = registrationNo;
+		this.type = type;
+		this.registrationDate = registrationDate;
+		this.cost = cost;
+	}
+	public String getRegistrationNo() {
+		return registrationNo;
+	}
+	public void setRegistrationNo(String registrationNo) {
+		this.registrationNo = registrationNo;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public LocalDate getRegistrationDate() {
+		return registrationDate;
+	}
+	public void setRegistrationDate(LocalDate registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+	public double getCost() {
+		return cost;
+	}
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+	
+}

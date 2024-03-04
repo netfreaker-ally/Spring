@@ -1,0 +1,79 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="m"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
+<m:master title="ReissuePage">
+<jsp:attribute name="head"></jsp:attribute>
+<jsp:attribute name="content">
+<f:form action="reissuingPassport" method="get" modelAttribute="passportDetail">
+	<table>
+	<tr>
+		<td>Reason forReissue</td>
+		<td><f:input path="reasonForReissue" required="true" /></td>
+		<td><f:errors path="reasonForReissue" /></td>
+	</tr>
+	<tr>
+	    <td>UserId</td>
+	    <td><f:input  path="userId.userId" required="true" /></td>   
+	</tr>
+	<tr>
+		<td>Enter the Country name</td>
+		<td><f:input path="country" required="true" /></td>
+		<td><f:errors path="country" /></td>
+	</tr>
+	<tr>
+		<td>Enter the state name</td>
+		<td><f:input path="state" required="true" /></td>
+		<td><f:errors path="state" /></td>
+	</tr>
+	<tr>
+		<td>Enter the city name</td>
+		<td><f:input path="city" required="true" /></td>
+		<td><f:errors path="city" /></td>
+	</tr>
+	<tr>
+	    <!-- <td>Enter the pin number</td> -->
+	    <td><f:input type="number" path="pin" style="display: none;" /></td>
+	    <td><f:errors path="pin" /></td>
+	</tr>
+	<tr>
+		<td>Type Of Service</td>
+		<td><f:radiobutton path="typeOfService" value="Normal" required="true" />Normal </td>
+        <td>   <f:radiobutton path="typeOfService" value="Tatkal" /> Tatkal</td>
+    </tr>
+ 	<tr>
+ 		<td>Booklet Type</td>
+          <td><f:radiobutton path="bookletType" value="30Pages" required="true" />30 Pages </td>
+          <td><f:radiobutton path="bookletType" value="60Pages" /> 60 Pages</td>
+       </tr>
+			
+	<tr> 
+		<td>Issue Date</td>
+    	<td><f:input path="issueDate" type="date" readonly="true"></f:input></td>
+	</tr>		   		
+		   		
+	<tr>
+		  <td><input type="submit"></td>
+	</tr>
+
+			
+			</table>
+	
+	</f:form>
+
+
+<c:out value="${message}"></c:out>
+
+
+
+
+
+
+
+
+
+</jsp:attribute>
+
+
+</m:master>

@@ -1,0 +1,21 @@
+package SpringDemo.DemoAoP.aspects;
+
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+
+@Aspect
+public class DemoAspect {
+	@After("execution(public void DrawShape())")
+	public void DemoAdvice1() {
+		System.out.println("Demo1 advice called");
+	}
+	@Before("execution(public int get*())")
+	public void DemoAdvice2() {
+		System.out.println("Demo2 advice called");
+	}
+	@Before("execution(public * get*())")
+	public void DemoAdvice3() {
+		System.out.println("Demo3 advice called");
+	}
+}

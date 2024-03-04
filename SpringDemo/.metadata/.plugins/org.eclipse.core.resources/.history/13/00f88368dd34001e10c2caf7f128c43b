@@ -1,0 +1,13 @@
+package com.Techwave.API.Models.Repositories;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.Techwave.API.Models.Pojos.Vehicledb;
+import com.Techwave.API.Models.Repositories.*;
+@Repository
+public interface VehicleRepository extends CrudRepository<Vehicledb, String> {
+
+} 
+
+

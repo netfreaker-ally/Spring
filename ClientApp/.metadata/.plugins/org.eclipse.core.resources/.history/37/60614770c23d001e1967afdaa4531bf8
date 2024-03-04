@@ -1,0 +1,61 @@
+package com.techwave.client.controllers.VisaApplyController;
+
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.web.client.RestTemplate;
+
+import com.techwave.client.models.pojo.PassportDetails;
+import com.techwave.client.models.pojo.UserDetails;
+import com.techwave.client.models.pojo.VisaDetails;
+import com.techwave.client.models.restconnect.visa_urls;
+
+import jakarta.validation.Valid;
+
+@Controller
+public class VisaApplyController {
+	@Autowired
+	RestTemplate restTemplate;
+	@RequestMapping("/applyVisa")
+	public String applyVisa(Model m) {
+		
+		UserDetails userDetails = new UserDetails();
+		userDetails.setUserId("PASS-0001");
+		VisaDetails v=new VisaDetails();
+		
+		v.setUserId(userDetails);
+		v.setVisaId(null);
+		PassportDetails passportdetail=new PassportDetails();
+		passportdetail.setPassportId("FPS-300011");
+		v.setPassportId(passportdetail);
+		v.setExpiryDate(null);
+		v.setDateOfIssue(null);
+		v.setRegistrationCost(null);
+		v.setStatus(null);
+		v.setDateOfApplication(LocalDate.now());
+		//when we get session attribute
+		//m.addAttribute("userId",userid);
+		m.addAttribute("visaDetails",v);
+		
+		return "VisaApply";
+	}
+	@RequestMapping("/insertIntoVisa")
+	public String insertIntoVisa(@Valid@ModelAttribute("visaDetails") VisaDetails VisaDetails,BindingResult result,Model m) {
+		if(!result.hasErrors()) {
+			try {
+				ResponseEntity<String> message=restTemplate.postForEntity(visa_urls.APPLY_VISA, VisaDetails,String.class);
+				m.addAttribute("msg", message);
+			} catch (HttpStatusCodeException e) {
+				m.addAttribute("msg", e.getResponseBodyAsString());
+			}
+		}
+		return "VisaApply";
+	}
+}

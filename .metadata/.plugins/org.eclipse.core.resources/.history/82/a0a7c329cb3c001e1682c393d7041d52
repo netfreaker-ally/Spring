@@ -1,0 +1,108 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@taglib tagdir="/WEB-INF/tags" prefix="m"%>
+
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
+
+
+<m:master title="RegistrationPage">
+
+
+	<jsp:attribute name="head">
+</jsp:attribute>
+
+
+	<jsp:attribute name="content">
+
+
+
+   <f:form method="post" modelAttribute="userRegistration"
+			action="RegistrationCheck">
+    <table>
+    	<tr>
+    		<td><f:input path="userId" style="display: none;"></f:input></td>
+		</tr>
+    	<tr>
+        			<td>First Name:</td>
+					<td><f:input path="firstName" required="true" /></td>
+					<td><f:errors path="firstName"></f:errors></td>
+		</tr>
+		<tr>
+        			<td>Surname: </td>
+        			<td><f:input path="surname" required="true" /></td>
+        			<td><f:errors path="surname"></f:errors></td>
+		</tr>
+		<tr>
+        			<td>Date of Birth:</td>
+        			<td><f:input type="date" path="dateOfBirth"
+							required="true" /></td>
+        			<td><f:errors path="dateOfBirth"></f:errors></td>
+		</tr>
+		<tr>
+					<td>Gender:</td>
+       				<td>
+       					<f:select path="gender" required="true">
+            			<option value="Male">Male</option>
+            			<option value="Female">Female</option>
+            			<option value="Other">Other</option>
+        				</f:select>
+       				 </td>
+        </tr> 
+		<tr>
+        			<td>Address: </td>
+        			<td><f:textarea path="address" required="true"></f:textarea></td>				
+					<td><f:errors path="address"></f:errors></td>
+		</tr>
+		<tr>
+         			<td>Contact Number:</td>
+         			<td><f:input path="contactNo" required="true" /></td>
+        			 <td><f:errors path="contactNo"></f:errors></td>
+		</tr>
+		<tr>
+        			<td>Email: </td>
+       			    <td><f:input path="emailAddress" required="true" /></td>
+        			<td><f:errors path="emailAddress"></f:errors></td>
+		</tr>
+		<tr>
+       				<td>Qualification:</td>
+       				<td><f:input path="qualification" required="true" /></td>
+       				<td><f:errors path="qualification"></f:errors></td>
+		
+		</tr>			
+		 
+	 <tr>
+					<td>Apply Type:</td>
+       			   <td>  <f:radiobutton path="applyType" value="Passport"
+							required="true" />passport </td>
+                     <td>   <f:radiobutton path="applyType"
+							value="Visa" /> visa</td>
+        </tr> 
+        <tr> 
+        			<td>Hint Question:</td>
+        			<td>
+        			<f:input path="hintQuestion" required="true" />
+					</td>					
+					<td><f:errors path="hintQuestion"></f:errors></td>
+		</tr>
+		<tr>
+					<td>Hint Answer:</td> 
+					<td><f:input path="hintAnswer" required="true" /></td>				
+					<td><f:errors path="hintAnswer"></f:errors></td>
+		</tr>
+		<tr>
+
+    		<td><f:input path="citizenType" style="display: none;"></f:input></td>
+   			 <td><f:errors path="citizenType"></f:errors></td>
+
+		</tr>
+		<tr>
+					<td><input type="submit" value="Register"></td>
+				</tr>
+        </table>
+    </f:form>
+
+
+	</jsp:attribute>
+
+</m:master>

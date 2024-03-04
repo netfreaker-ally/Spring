@@ -1,0 +1,52 @@
+package com.techwave.client.controllers.UserRegistrationController;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.web.client.RestTemplate;
+
+import com.techwave.client.models.pojo.UserDetails;
+import com.techwave.client.models.restconnect.user_urls;
+
+import jakarta.validation.Valid;
+
+@Controller
+public class UserRegistrationController {
+	@Autowired
+	RestTemplate restTemplate; 
+	//bean has to be create in main file
+	@RequestMapping("/Registration")
+	public String Registration(Model M)
+	{
+		UserDetails userRegistration=new UserDetails();
+		userRegistration.setCitizenType(null);
+		userRegistration.setUserId(null);
+		
+		M.addAttribute("userregistration",userRegistration);
+		return "Registration";
+	}
+	
+	@RequestMapping("/RegistrationCheck")
+	public String registrationCheck(@Valid @ModelAttribute("userregistration") UserDetails userDetails, BindingResult result, Model M) {
+       try {
+    	   if (!result.hasErrors()) {
+           	ResponseEntity<String> message=restTemplate.postForEntity(user_urls.SAVE_USER, userDetails, String.class);
+           	M.addAttribute("message", message);
+               return "Registration";
+           }else
+        	   return "Registration";
+	} catch (HttpStatusCodeException e) {
+		M.addAttribute("message", e.getResponseBodyAsString());
+		return "Registration";
+		
+	}
+	
+        
+    }
+	
+}

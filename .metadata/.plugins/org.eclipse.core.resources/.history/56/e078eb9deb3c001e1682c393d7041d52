@@ -1,0 +1,14 @@
+package com.techwave.client.models.pojo;
+
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
+public class SixDigitValidator implements ConstraintValidator<pin, Integer> {
+
+	
+
+	 @Override
+	  public boolean isValid(Integer value, ConstraintValidatorContext context) {
+	    return value != null && value.toString().length() == 6;
+	  }
+}

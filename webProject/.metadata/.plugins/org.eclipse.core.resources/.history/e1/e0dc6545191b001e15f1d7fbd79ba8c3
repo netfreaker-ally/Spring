@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+ 
+ <bean id="address1" class="SpringDemo.Demo.Address">
+	 <property name="hno" value="10"></property>
+	 <property name="area" value="gachibowli"></property>
+	 <property name="city" value="HYD"></property>
+ </bean>
+ <bean id="address2" class="SpringDemo.Demo.Address">
+	 <property name="hno" value="100"></property>
+	 <property name="area" value="dsnr"></property>
+	 <property name="city" value="RR"></property>
+ </bean>
+ <bean id="E" class="SpringDemo.Demo.Employee">
+ 		<constructor-arg value="1"></constructor-arg>
+ 		<constructor-arg value="Ram"></constructor-arg>
+ 		<constructor-arg ref="address1"></constructor-arg>
+ 		<constructor-arg ref="address2"></constructor-arg>
+ </bean>
+ <!-- <bean id="E" class="SpringDemo.Demo.Employee">
+ 	<constructor-arg value="1"></constructor-arg>
+ 	<constructor-arg value="Hanu"> </constructor-arg>
+ 	<constructor-arg ref="A"></constructor-arg>
+ </bean> -->
+ 
+ </beans>

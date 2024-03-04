@@ -1,0 +1,25 @@
+<%@taglib tagdir="/WEB-INF/tags" prefix="tag" %>
+<tag:master title="HomePage">
+
+<jsp:attribute name="head">
+<link rel="stylesheet" href="\styles\style.css">
+</jsp:attribute>
+
+<jsp:attribute name="content">
+
+<div><img src="/images/HomePageBg.png" alt="image" style="width:100vw"></div>
+<div class="center">
+< <div class="title">Welcome to Visa Management System</div> 
+<div class="sub_title">Your Trusted Visa Partner</div>
+<div class="center">
+       
+        <div class="btns">
+            <button class="login-button wave">Login</button>
+        </div>
+    </div>
+</div>
+</jsp:attribute>
+
+
+
+</tag:master>

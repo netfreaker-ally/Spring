@@ -1,0 +1,33 @@
+package SpringDemo.DemoAoP;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import SpringDemo.DemoAoP.POJO.Circle;
+import SpringDemo.DemoAoP.POJO.Triangle;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+       ApplicationContext context=new ClassPathXmlApplicationContext("SpringAop.xml");
+       Triangle t=(Triangle)context.getBean("T");
+       //t.DrawShape();
+      Circle c=(Circle)context.getBean("C");
+      //c.DrawShape();
+//      System.out.println(c.getRadius());
+//      System.out.println(t.getBase());
+//      System.out.println(t.getHeight());
+//      System.out.println(t.getType());
+      t.setBase(30);
+      t.setType("net");
+    
+      c.setRadius(99);
+      t.setBase(88);
+      t.setHeight(77);
+    }
+}

@@ -1,0 +1,85 @@
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import DB.DboperationsAssignment;
+
+/**
+ * Servlet implementation class AssignmentServlet
+ */
+@WebServlet("/AssignmentServlet")
+public class AssignmentServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AssignmentServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		int deptno=0;
+		try {
+			String selectedDept = request.getParameter("dept");
+			
+			if (selectedDept != null) {
+			    
+			    if (selectedDept.equals("dept10")) {
+			       deptno=10;
+			    } else if (selectedDept.equals("dept20")) {
+			        deptno=20;
+			    } else if (selectedDept.equals("dept30")) {
+			        deptno=30;
+			    }
+			}
+
+			DboperationsAssignment db=new DboperationsAssignment();
+			List<String> resultset=db.select(deptno);
+			RequestDispatcher rd=request.getRequestDispatcher("/Assignment.html");
+			rd.include(request, response);
+			try {
+				for (String string : resultset) {
+					out.write(string+"<br/>");
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		} catch (NumberFormatException e) {
+			// TODO: handle exception
+			System.out.println("Error in accessing: "+e.getMessage());
+		}
+		//System.out.println(deptno);
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

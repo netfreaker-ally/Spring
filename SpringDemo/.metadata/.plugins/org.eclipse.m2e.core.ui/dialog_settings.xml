@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\hanuma.ramavath\eclipse-workspace\SpringDemo\Demojdbc\src\main\java\com\techwave\controllers\MasterController.java"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="internal"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+			<item value="SpringMVC.DemoMVCHibernate"/>
+			<item value="com.techwave.mvc"/>
+		</list>
+		<list key="groupId">
+			<item value="SpringMVC"/>
+		</list>
+		<list key="artifactId">
+			<item value="DemoMVCHibernate"/>
+			<item value="Demo"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\hanuma.ramavath\Downloads\demoClient (1)\demoClient"/>
+			<item value="C:\Users\hanuma.ramavath\OneDrive - TECHWAVE\Desktop\MyProject\BAck\ClientPVMS"/>
+			<item value="C:\Users\hanuma.ramavath\OneDrive - TECHWAVE\Desktop\MyProject\BAck\ProjectPVMS"/>
+			<item value="C:\Users\hanuma.ramavath\Downloads\demoAPI\demoAPI"/>
+			<item value="C:\Users\hanuma.ramavath\Downloads\Example2\Example2\src\main\webapp\views\Basic.jsp"/>
+			<item value="C:\Users\hanuma.ramavath\Downloads\Example2\Example2"/>
+			<item value="C:\Users\hanuma.ramavath\Downloads\Example1\Example1"/>
+			<item value="C:\Users\hanuma.ramavath\Downloads\DemoBoot\DemoBoot"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>

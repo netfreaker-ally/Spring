@@ -1,0 +1,79 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="m"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
+
+<m:master title="VisaApply">
+	<jsp:attribute name="head"></jsp:attribute>
+	<jsp:attribute name="content">
+	
+
+	
+	
+<f:form action="insertIntoVisa" modelAttribute="visaDetails" method="get">
+<table>
+<tr> 
+	<td><f:input path="visaId" style="display: none;"></f:input></td>
+	<td><f:errors path="visaId"></f:errors></td>
+</tr>
+<tr> <td>UserId </td>
+	<td><f:input path="userId.userId"></f:input></td>
+	<td><f:errors path="userId"></f:errors></td>
+</tr>
+
+<tr> <td>VisaId </td>
+	<td><f:input path="passportId.passportId" ></f:input></td>
+	<td><f:errors path="passportId"></f:errors></td>
+</tr>
+<tr> <td>Country</td>
+<td><f:input path="country"></f:input></td>
+	<td><f:errors path="country"></f:errors></td>
+</tr>
+<tr>
+    <td>Occupation</td>
+    <td>
+        <f:input path="occupation">
+            <select name="occupation">
+                <option value="Student">Student</option>
+                <option value="Private Employee">Private Employee</option>
+                <option value="Government Employee">Government Employee</option>
+                <option value="Self Employed">Self Employed</option>
+                <option value="Retired Employee">Retired Employee</option>
+            </select>
+        </f:input>
+    </td>
+    <td><f:errors path="occupation"></f:errors></td>
+</tr>
+
+<tr> <td>DateOfApplication</td>
+	<td><f:input path="dateOfApplication" type="date" readonly="true" ></f:input></td>
+	<td><f:errors path="dateOfApplication"></f:errors></td>
+</tr>
+<tr> 
+	<td><f:input path="dateOfIssue" type="date" style="display: none;"></f:input></td>
+	<td><f:errors path="dateOfIssue"></f:errors></td>
+</tr>
+<tr> 
+	<td><f:input path="registrationCost" style="display: none;"></f:input></td>
+	<td><f:errors path="registrationCost"></f:errors></td>
+</tr>
+<tr> 
+	<td><f:input path="expiryDate" type="date" style="display: none;"></f:input></td>
+	<td><f:errors path="expiryDate"></f:errors></td>
+</tr>
+<tr> 
+	<td><f:input path="status" style="display: none;"></f:input></td>
+	<td><f:errors path="status"></f:errors></td>
+</tr>
+<tr>
+					<td><input type="submit"></td> </tr>
+					
+			
+	</table>
+
+
+</f:form>
+
+</jsp:attribute>
+
+</m:master>
